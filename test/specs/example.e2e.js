@@ -20,6 +20,14 @@ describe('Auth', () => {
     it('submit button is disabled if login and password are absent', ()=> {
        LoginPage.submitButtonIsDisabled();
     });
+
+    it('fails if invalid data provided', () => {
+        LoginPage.setLogin('example@example.com');
+        LoginPage.setPassword('654321');
+        LoginPage.clickSubmitButton();
+        LoginPage.errorToastAppeared();
+
+    });
 });
 
 
