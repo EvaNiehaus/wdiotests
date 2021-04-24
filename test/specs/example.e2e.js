@@ -26,8 +26,14 @@ describe('Auth', () => {
         LoginPage.setPassword('654321');
         LoginPage.clickSubmitButton();
         LoginPage.errorToastAppeared();
-
     });
+
+    it.only('login input is required', ()=> {
+        LoginPage.setLogin('example@xample.com');
+        LoginPage.emptyLoginInput();
+        LoginPage.loginRequiredError();
+    });
+
 });
 
 
